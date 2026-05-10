@@ -231,10 +231,16 @@ function AppInner() {
         {error === 'offline' && (
           <span className="md-chip md-chip-assist md-label-small" style={{ marginRight: 8 }}>Offline</span>
         )}
-        {user.picture
-          ? <img src={user.picture} alt={user.name} style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover' }} />
-          : <div className="md-avatar" style={{ width: 36, height: 36, fontSize: 14 }}>{user.name?.[0]}</div>
-        }
+        <button 
+          onClick={() => setTab('settings')}
+          style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer', outline: 'none', display: 'flex' }}
+          aria-label="Account Settings"
+        >
+          {user.picture
+            ? <img src={user.picture} alt={user.name} style={{ width: 36, height: 36, borderRadius: '50%', objectFit: 'cover' }} />
+            : <div className="md-avatar" style={{ width: 36, height: 36, fontSize: 14 }}>{user.name?.[0]}</div>
+          }
+        </button>
       </header>
 
       {/* Tab content */}
